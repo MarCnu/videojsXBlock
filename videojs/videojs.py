@@ -27,11 +27,6 @@ class videojsXBlock(XBlock):
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
-    def resource_string_non_utf8(self, path):
-        """Handy helper for getting resources from our kit."""
-        data = pkg_resources.resource_string(__name__, path)
-
-
     def student_view(self, context=None):
         """
         The primary view of the XBlock, shown to students
@@ -39,8 +34,6 @@ class videojsXBlock(XBlock):
         """
         html = self.resource_string("static/html/videojs_view.html")
         frag = Fragment(html.format(self=self))
-        frag.add_resource(self.resource_string_non_utf8("static/font/vjs.woff"), "application/x-font-woff")
-        frag.add_resource(self.resource_string_non_utf8("static/font/vjs.ttf"), "application/x-font-ttf")
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_javascript(self.resource_string("static/js/video-js.js"))
         return frag
