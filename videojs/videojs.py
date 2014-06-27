@@ -13,9 +13,9 @@ class videojsXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     display_name = String(display_name="Display Name",
-                          default="Video",
-                          scope=Scope.settings,
-                          help="This name appears in the horizontal navigation at the top of the page.")
+                  default="Video",
+                  scope=Scope.settings,
+                  help="This name appears in the horizontal navigation at the top of the page.")
 
     url = String(display_name="Video URL",
                   default="http://vjs.zencdn.net/v/oceans.mp4",
@@ -33,10 +33,10 @@ class videojsXBlock(XBlock):
         The primary view of the XBlock, shown to students
         when viewing courses.
         """
-        html = self.resource_string("static/html/videojs.html")
+        html = self.resource_string("static/html/videojs_view.html")
         frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/videojs.css"))
-        frag.add_javascript(self.ressource_string("static/js/video.js"))
+        frag.add_css(self.resource_string("static/css/video-js.min.css"))
+        frag.add_javascript(self.ressource_string("static/js/video-js.js"))
         return frag
 
 
