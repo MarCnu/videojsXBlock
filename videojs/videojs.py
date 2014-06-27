@@ -35,6 +35,8 @@ class videojsXBlock(XBlock):
         """
         html = self.resource_string("static/html/videojs_view.html")
         frag = Fragment(html.format(self=self))
+        frag.add_resource(self.resource_string("static/font/vjs.woff"), "application/x-font-woff")
+        frag.add_resource(self.resource_string("static/font/vjs.ttf"), "application/x-font-ttf")
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_javascript(self.resource_string("static/js/video-js.js"))
         return frag
