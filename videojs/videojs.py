@@ -13,7 +13,7 @@ class videojsXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     display_name = String(display_name="Display Name",
-                  default="Video",
+                  default="Video JS",
                   scope=Scope.settings,
                   help="This name appears in the horizontal navigation at the top of the page.")
 
