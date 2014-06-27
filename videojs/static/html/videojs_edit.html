@@ -1,0 +1,31 @@
+<div class="wrapper-comp-settings is-active" id="settings-tab">
+    <ul class="list-input settings-list">
+         <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="edit_display_name">Display Name</label>
+                <input class="input setting-input" id="edit_display_name" value="{self.display_name}" type="text">
+                <span class="tip setting-help">This name appears in the horizontal navigation at the top of the page.</span>
+            </div>
+        </li>
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="edit_url">Video URL</label>
+                <input class="input setting-input" id="edit_url" value="{self.url}" type="text">
+                <span class="tip setting-help">The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.</span>
+            </div>
+        </li>
+    </ul>
+    <div class="xblock-actions">
+        <span class="xblock-editor-error-message"></span>
+        <ul>
+            <li class="action-item">
+                <a href="#" class="button action-primary action-save">Save</a>
+            </li>
+            <li class="action-item">
+                <a href="#" class="button action-cancel">Cancel</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
