@@ -7,8 +7,9 @@ function videojsXBlock(runtime, element) {
 
     $(element).find('.action-save').bind('click', function() {
         var data = {
-            'display_name': $(edit_display_name).context.value,
-            'url': $(edit_url).context.value
+            'display_name': $(videojs_edit_display_name).context.value,
+            'url': $(videojs_edit_url).context.value
+            'allow_download': $(videojs_edit_allow_download).context.value
         };
 
         $('.xblock-editor-error-message', element).html();

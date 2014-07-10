@@ -12,15 +12,22 @@ class videojsXBlock(XBlock):
     """
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
+    icon_class = "video" # Values [other (default), video, problem]
+
     display_name = String(display_name="Display Name",
-                  default="Video JS",
-                  scope=Scope.settings,
-                  help="This name appears in the horizontal navigation at the top of the page.")
+        default="Video JS",
+        scope=Scope.settings,
+        help="This name appears in the horizontal navigation at the top of the page.")
 
     url = String(display_name="Video URL",
-                  default="http://vjs.zencdn.net/v/oceans.mp4",
-                  scope=Scope.content,
-                  help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
+        default="http://vjs.zencdn.net/v/oceans.mp4",
+        scope=Scope.content,
+        help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
+
+    allow_download = Boolean(display_name="Video Download Allowed",
+        default=False,
+        scope=Scope.settings,
+        help="Allow students to download this video.")
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -37,7 +44,6 @@ class videojsXBlock(XBlock):
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_javascript(self.resource_string("static/js/video-js.js"))
         return frag
-
 
     def studio_view(self, context=None):
         """
@@ -57,6 +63,7 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
+        self.allow_download = data['allow_download']
         
         return {
             'result': 'success',
