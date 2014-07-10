@@ -66,7 +66,7 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allow_download = data['allow_download']
+        self.allow_download = data['allow_download'] == "True"
         
         return {
             'result': 'success',

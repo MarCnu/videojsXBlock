@@ -1,10 +1,10 @@
-.video-download-button{
+.video-download-button {
     margin: 0;
     padding: 0;
     display: inline-block;
     vertical-align: top;
-
-    > a {
+}
+.video-download-button a {
         transition: all 0.25s ease-in-out 0s;
         font-size: 14px;
         line-height: 14px;
@@ -13,10 +13,8 @@
         background-color: #FFF;
         padding: 0;
         color: #646464;
-
-        &:hover, &:focus {
+}
+.video-download-button a:hover, a:focus {
             background-color: #009FE6;
             color: #FFF;
-        }
-    }
 }
