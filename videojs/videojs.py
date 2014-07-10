@@ -3,7 +3,7 @@
 import pkg_resources
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String, Boolean
+from xblock.fields import Scope, Integer, String
 from xblock.fragment import Fragment
 
 class videojsXBlock(XBlock):
@@ -25,11 +25,6 @@ class videojsXBlock(XBlock):
         default="http://vjs.zencdn.net/v/oceans.mp4",
         scope=Scope.content,
         help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
-
-    allow_download = Boolean(display_name="Video Download Allowed",
-        default=False,
-        scope=Scope.content,
-        help="Allow students to download this video.")
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -66,7 +61,6 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allow_download = data['allow_download'] == "True"
         
         return {
             'result': 'success',

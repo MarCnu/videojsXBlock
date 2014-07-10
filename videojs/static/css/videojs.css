@@ -11,7 +11,7 @@
         float: left;
         border-radius: 3px;
         background-color: #FFF;
-        padding: 0;
+        padding: 15px;
         color: #646464;
 }
 .video-download-button a:hover, a:focus {
