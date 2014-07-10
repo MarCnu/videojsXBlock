@@ -12,6 +12,7 @@ class videojsXBlock(XBlock):
     """
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
+
     icon_class = "video" # Values [other (default), video, problem]
 
     display_name = String(display_name="Display Name",
@@ -42,6 +43,7 @@ class videojsXBlock(XBlock):
         html = self.resource_string("static/html/videojs_view.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
+        frag.add_css(self.resource_string("static/css/videojs.css"))
         frag.add_javascript(self.resource_string("static/js/video-js.js"))
         return frag
 
