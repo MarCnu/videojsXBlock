@@ -3,20 +3,19 @@
     padding: 0;
     display: inline-block;
     vertical-align: top;
-    margin: ($baseline*.75) ($baseline/2) 0 0;
 
     > a {
-        @include transition(all 0.25s ease-in-out 0s);
-        @include font-size(14);
-        line-height : 14px;
+        transition: all 0.25s ease-in-out 0s;
+        font-size: 14px;
+        line-height: 14px;
         float: left;
         border-radius: 3px;
-        background-color: $very-light-text;
-        padding: ($baseline*.75);
-        color: $lighter-base-font-color;
+        background-color: #FFF;
+        padding: 0;
+        color: #646464;
 
         &:hover, &:focus {
-            background-color: $action-primary-active-bg;
-            color: $very-light-text;
+            background-color: #009FE6;
+            color: #FFF;
     }
 }

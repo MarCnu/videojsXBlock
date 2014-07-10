@@ -3,7 +3,7 @@
 import pkg_resources
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String
+from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
 
 class videojsXBlock(XBlock):
@@ -13,7 +13,8 @@ class videojsXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
-    icon_class = "video" # Values [other (default), video, problem]
+    # Values : [other (default), video, problem]
+    icon_class = "video"
 
     display_name = String(display_name="Display Name",
         default="Video JS",
@@ -27,7 +28,7 @@ class videojsXBlock(XBlock):
 
     allow_download = Boolean(display_name="Video Download Allowed",
         default=False,
-        scope=Scope.settings,
+        scope=Scope.content,
         help="Allow students to download this video.")
 
     def resource_string(self, path):
