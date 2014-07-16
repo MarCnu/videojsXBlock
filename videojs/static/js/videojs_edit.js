@@ -24,7 +24,9 @@ function videojsXBlockInitStudio(runtime, element) {
         });
     });
 
+    console.log('Init Studio outside');
     $(function ($) {
+        console.log('Init Studio inside');
         /* Here's where you'd do things on page load. */
     });
 }
