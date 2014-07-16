@@ -21,6 +21,7 @@ See https://github.com/polimediaupv/paellaXBlock installation
     sudo rm -r videojsXBlock
 
 If necessary, try to reboot :
+
     sudo /edx/bin/supervisorctl -c /edx/etc/supervisord.conf restart edxapp:
 
 Go to Settings -> Advanced Settings and set `advanced_modules` to `["videojs"]`.
