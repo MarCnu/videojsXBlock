@@ -9,6 +9,7 @@ XBlock to use the Video.js player (www.videojs.com) instead of the default one.
 ### Installation / Updating ###
 See https://github.com/polimediaupv/paellaXBlock installation
 
+    # Move to the folder where you want to download the XBlock
     cd /edx/app/edxapp
     # Download the XBlock
     sudo -u edxapp git clone https://github.com/MarCnu/videojsXBlock.git
