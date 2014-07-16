@@ -41,6 +41,8 @@ class videojsXBlock(XBlock):
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_css(self.resource_string("static/css/videojs.css"))
         frag.add_javascript(self.resource_string("static/js/video-js.js"))
+        frag.add_javascript(self.resource_string("static/js/videojs_view.js"))
+        frag.initialize_js('videojsXBlockInitView')
         return frag
 
     def studio_view(self, context=None):
@@ -51,7 +53,7 @@ class videojsXBlock(XBlock):
         html = self.resource_string("static/html/videojs_edit.html")
         frag = Fragment(html.format(self=self))
         frag.add_javascript(self.resource_string("static/js/videojs_edit.js"))
-        frag.initialize_js('videojsXBlock')
+        frag.initialize_js('videojsXBlockInitStudio')
         return frag
 
     @XBlock.json_handler
