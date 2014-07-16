@@ -13,9 +13,9 @@ See https://github.com/polimediaupv/paellaXBlock installation
     cd /edx/app/edxapp
     # Download the XBlock
     sudo -u edxapp git clone https://github.com/MarCnu/videojsXBlock.git
-    # Install the script
+    # Install the XBlock
     sudo -u edxapp /edx/bin/pip.edxapp install videojsXBlock/
-    # Upgrade the script if it is already installed, using --upgrade
+    # Upgrade the XBlock if it is already installed, using --upgrade
     sudo -u edxapp /edx/bin/pip.edxapp install videojsXBlock/ --upgrade
     # Remove the installation files
     sudo rm -r videojsXBlock
