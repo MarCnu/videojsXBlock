@@ -7,7 +7,7 @@ function videojsXBlockInitView(runtime, element) {
     console.log('Init View outside');
     $('.video-js').each(function(index) {
         console.log('Init View inside');
-        videojs(this), {'playbackRates':[0.75,1,1.25,1.5,1.75,2]}, function() {
+        videojs(this, {playbackRates:[0.75,1,1.25,1.5,1.75,2]}, function() {
         });
     });
 }
