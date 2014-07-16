@@ -16,8 +16,6 @@ class videojsXBlock(XBlock):
     # Values : [other (default), video, problem]
     icon_class = "video"
 
-    playbackRates = '{"playbackRates":[0.5,1,1.5,2]"}'
-
     display_name = String(display_name="Display Name",
         default="Video JS",
         scope=Scope.settings,
