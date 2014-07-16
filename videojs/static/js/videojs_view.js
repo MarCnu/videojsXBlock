@@ -11,6 +11,6 @@ function videojsXBlockInitView(runtime, element) {
     console.log('Init videojsXBlock view');
     
     var video = element.find('video:first');
-    videojs(video, {playbackRates:[0.75,1,1.25,1.5,1.75,2]}, function() {});
+    videojs(video.get(0), {playbackRates:[0.75,1,1.25,1.5,1.75,2]}, function() {});
 
 }
