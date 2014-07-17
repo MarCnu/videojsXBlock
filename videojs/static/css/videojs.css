@@ -6,16 +6,16 @@
     vertical-align: top;
 }
 .video-download-button a {
-        transition: all 0.25s ease-in-out 0s;
-        font-size: 14px;
-        line-height: 14px;
-        float: left;
-        border-radius: 3px;
-        background-color: #FFF;
-        padding: 15px;
-        color: #646464;
+    transition: all 0.25s ease-in-out 0s;
+    font-size: 14px;
+    line-height: 14px;
+    float: left;
+    border-radius: 3px;
+    background-color: #FFF;
+    padding: 15px;
+    color: #646464;
 }
 .video-download-button a:hover, a:focus {
-            background-color: #009FE6;
-            color: #FFF;
+    background-color: #009FE6;
+    color: #FFF;
 }
