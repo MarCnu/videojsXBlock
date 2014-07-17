@@ -35,19 +35,19 @@ class videojsXBlock(XBlock):
     '''
     Util functions
     '''
-    def load_resource(resource_path):
+    def load_resource(self, resource_path):
         """
         Gets the content of a resource
         """
         resource_content = pkg_resources.resource_string(__name__, resource_path)
         return unicode(resource_content)
 
-    def render_template(template_path, context={}):
+    def render_template(self, template_path, context={}):
         """
         Evaluate a template by resource path, applying the provided context
         """
-        template_str = load_resource(template_path)
-        return = Template(template_str).render(Context(context))
+        template_str = self.load_resource(template_path)
+        return Template(template_str).render(Context(context))
 
     '''
     Main functions
@@ -62,13 +62,13 @@ class videojsXBlock(XBlock):
             'url': self.url,
             'allow_download': self.allow_download
         }
-        html = render_template('static/html/videojs_view.html', context)
+        html = self.render_template('static/html/videojs_view.html', context)
         
         frag = Fragment(html)
-        frag.add_css(load_resource("static/css/video-js.min.css"))
-        frag.add_css(load_resource("static/css/videojs.css"))
-        frag.add_javascript(load_resource("static/js/video-js.js"))
-        frag.add_javascript(load_resource("static/js/videojs_view.js"))
+        frag.add_css(self.load_resource("static/css/video-js.min.css"))
+        frag.add_css(self.load_resource("static/css/videojs.css"))
+        frag.add_javascript(self.load_resource("static/js/video-js.js"))
+        frag.add_javascript(self.load_resource("static/js/videojs_view.js"))
         frag.initialize_js('videojsXBlockInitView')
         return frag
 
@@ -82,10 +82,10 @@ class videojsXBlock(XBlock):
             'url': self.url,
             'allow_download': self.allow_download
         }
-        html = render_template('static/html/videojs_edit.html', context)
+        html = self.render_template('static/html/videojs_edit.html', context)
         
         frag = Fragment(html)
-        frag.add_javascript(load_resource("static/js/videojs_edit.js"))
+        frag.add_javascript(self.load_resource("static/js/videojs_edit.js"))
         frag.initialize_js('videojsXBlockInitStudio')
         return frag
 
