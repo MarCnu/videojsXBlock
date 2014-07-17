@@ -42,13 +42,12 @@ class videojsXBlock(XBlock):
         The primary view of the XBlock, shown to students
         when viewing courses.
         """
-        template = self.resource_string("static/html/videojs_view2.html")
-        #frag = Fragment(html.format(self=self))
-        context = {
-            "display_name": self.display_name,
-            "url": self.url
-        }
-        html = Template(template).render(context)
+        template = self.resource_string("static/html/videojs_view.html")
+        html = Template(template).render(
+            display_name=self.display_name,
+            url=self.url
+        )
+        
         frag = Fragment(html)
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_css(self.resource_string("static/css/videojs.css"))
