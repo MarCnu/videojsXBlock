@@ -26,7 +26,7 @@ class videojsXBlock(XBlock):
         scope=Scope.content,
         help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
     
-    allowDownload = String(display_name="Video Download Allowed",
+    allow_download = String(display_name="Video Download Allowed",
         default="True",
         scope=Scope.content,
         help="Allow students to download this video.")
@@ -68,7 +68,7 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allowDownload = "True" if data['allow_download'] == "True" else "False" 
+        self.allow_download = "True" if data['allow_download'] == "True" else "False" 
         
         return {
             'result': 'success',
