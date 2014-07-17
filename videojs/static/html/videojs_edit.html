@@ -4,7 +4,7 @@
          <li class="field comp-setting-entry is-set">
             <div class="wrapper-comp-setting">
                 <label class="label setting-label" for="videojs_edit_display_name">Display Name</label>
-                <input class="input setting-input" id="videojs_edit_display_name" value="${display_name}" type="text">
+                <input class="input setting-input" id="videojs_edit_display_name" value="{{ display_name }}" type="text">
             </div>
             <span class="tip setting-help">This name appears in the horizontal navigation at the top of the page.</span>
         </li>
@@ -12,7 +12,7 @@
         <li class="field comp-setting-entry is-set">
             <div class="wrapper-comp-setting">
                 <label class="label setting-label" for="videojs_edit_url">Video URL</label>
-                <input class="input setting-input" id="videojs_edit_url" value="${url}" type="text">
+                <input class="input setting-input" id="videojs_edit_url" value="{{ url }}" type="text">
             </div>
             <span class="tip setting-help">The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.</span>
         </li>
@@ -21,8 +21,8 @@
             <div class="wrapper-comp-setting">
                 <label class="label setting-label" for="videojs_edit_allow_download">Video Download Allowed</label>
                 <select class="input setting-input" id="videojs_edit_allow_download">
-                    <option value="True" ${ 'selected' if allow_download else ''}>True</option>
-                    <option value="False" ${ 'selected' if !allow_download else ''}>False</option>
+                    <option value="True" {% if allow_download %}selected{% endif %}>True</option>
+                    <option value="False" {% if not allow_download %}selected{% endif %}>False</option>
                 </select>
             </div>
             <span class="tip setting-help">Allow students to download this video.</span>

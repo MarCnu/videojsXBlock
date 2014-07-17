@@ -1,22 +1,22 @@
 """ videojsXBlock main Python class"""
 
 import pkg_resources
-from mako.template import Template
+from django.template import Context, Template
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
 
 class videojsXBlock(XBlock):
-    """
-    TO-DO: document what your XBlock does.
-    """
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
 
-    # Values : [other (default), video, problem]
+    '''
+    Icon of the XBlock. Values : [other (default), video, problem]
+    '''
     icon_class = "video"
 
+    '''
+    Fields
+    '''
     display_name = String(display_name="Display Name",
         default="Video JS",
         scope=Scope.settings,
@@ -32,27 +32,43 @@ class videojsXBlock(XBlock):
         scope=Scope.content,
         help="Allow students to download this video.")
 
-    def resource_string(self, path):
-        """Handy helper for getting resources from our kit."""
-        data = pkg_resources.resource_string(__name__, path)
-        return data.decode("utf8")
+    '''
+    Util functions
+    '''
+    def load_resource(resource_path):
+        """
+        Gets the content of a resource
+        """
+        resource_content = pkg_resources.resource_string(__name__, resource_path)
+        return unicode(resource_content)
 
+    def render_template(template_path, context={}):
+        """
+        Evaluate a template by resource path, applying the provided context
+        """
+        template_str = load_resource(template_path)
+        return = Template(template_str).render(Context(context))
+
+    '''
+    Main functions
+    '''
     def student_view(self, context=None):
         """
         The primary view of the XBlock, shown to students
         when viewing courses.
         """
-        template = self.resource_string("static/html/videojs_view.html")
-        html = Template(template).render(
-            display_name=self.display_name,
-            url=self.url
-        )
+        context = {
+            'display_name': self.display_name,
+            'url': self.url,
+            'allow_download': self.allow_download
+        }
+        html = render_template('static/html/videojs_view.html', context)
         
         frag = Fragment(html)
-        frag.add_css(self.resource_string("static/css/video-js.min.css"))
-        frag.add_css(self.resource_string("static/css/videojs.css"))
-        frag.add_javascript(self.resource_string("static/js/video-js.js"))
-        frag.add_javascript(self.resource_string("static/js/videojs_view.js"))
+        frag.add_css(load_resource("static/css/video-js.min.css"))
+        frag.add_css(load_resource("static/css/videojs.css"))
+        frag.add_javascript(load_resource("static/js/video-js.js"))
+        frag.add_javascript(load_resource("static/js/videojs_view.js"))
         frag.initialize_js('videojsXBlockInitView')
         return frag
 
@@ -61,15 +77,15 @@ class videojsXBlock(XBlock):
         The secondary view of the XBlock, shown to teachers
         when editing the XBlock.
         """
-        template = self.resource_string("static/html/videojs_edit.html")
-        html = Template(template).render(
-            display_name=self.display_name,
-            url=self.url,
-            allow_download=self.allow_download
-        )
+        context = {
+            'display_name': self.display_name,
+            'url': self.url,
+            'allow_download': self.allow_download
+        }
+        html = render_template('static/html/videojs_edit.html', context)
         
         frag = Fragment(html)
-        frag.add_javascript(self.resource_string("static/js/videojs_edit.js"))
+        frag.add_javascript(load_resource("static/js/videojs_edit.js"))
         frag.initialize_js('videojsXBlockInitStudio')
         return frag
 

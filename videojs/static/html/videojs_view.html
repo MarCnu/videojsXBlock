@@ -1,15 +1,15 @@
 <div class="videojs_block">
-    <style scoped>.vjs-menu-item{{margin-bottom:0 !important}}</style>
-    <h2>${display_name}</h2>
+    <style scoped>.vjs-menu-item{margin-bottom:0 !important}</style>
+    <h2>{{ display_name }}</h2>
     <video class="video-js vjs-default-skin" controls
-        src="${url}" preload="auto" width="100%" height="400">
+        src="{{ url }}" preload="auto" width="100%" height="400">
         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
     </video>
-    % if allow_download:
+    {% if allow_download %}
     <ul>
         <li class="video-download-button">
-            <a href="${url}">Download video</a>
+            <a href="{{ url }}">Download video</a>
         </li>
     </ul>
-    % endif
+    {% endif %}
 </div>
