@@ -1,6 +1,7 @@
 """ videojsXBlock main Python class"""
 
 import pkg_resources
+from mako.template import Template
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String
@@ -41,13 +42,13 @@ class videojsXBlock(XBlock):
         The primary view of the XBlock, shown to students
         when viewing courses.
         """
-        #html = self.resource_string("static/html/videojs_view.html")
+        template = self.resource_string("static/html/videojs_view2.html")
         #frag = Fragment(html.format(self=self))
         context = {
             "display_name": self.display_name,
             "url": self.url
         }
-        html = self.system.render_template("static/html/videojs_view2.html", context)
+        html = Template(template).render(context)
         frag = Fragment(html)
         frag.add_css(self.resource_string("static/css/video-js.min.css"))
         frag.add_css(self.resource_string("static/css/videojs.css"))
