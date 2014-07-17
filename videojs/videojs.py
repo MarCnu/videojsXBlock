@@ -4,7 +4,7 @@ import pkg_resources
 from mako.template import Template
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String
+from xblock.fields import Scope, Integer, String, Boolean
 from xblock.fragment import Fragment
 
 class videojsXBlock(XBlock):
@@ -27,8 +27,8 @@ class videojsXBlock(XBlock):
         scope=Scope.content,
         help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
     
-    allow_download = String(display_name="Video Download Allowed",
-        default="True",
+    allow_download = Boolean(display_name="Video Download Allowed",
+        default=True,
         scope=Scope.content,
         help="Allow students to download this video.")
 
@@ -80,7 +80,7 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allow_download = "True" if data['allow_download'] == "True" else "False" 
+        self.allow_download = True if data['allow_download'] == "True" else False 
         
         return {
             'result': 'success',

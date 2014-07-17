@@ -8,7 +8,7 @@ function videojsXBlockInitStudio(runtime, element) {
     $(element).find('.action-save').bind('click', function() {
         var data = {
             'display_name': $('#videojs_edit_display_name').val(),
-            'url': $('#videojs_edit_url').val()
+            'url': $('#videojs_edit_url').val(),
             'allow_download': $('#videojs_edit_allow_download').val()
         };
 

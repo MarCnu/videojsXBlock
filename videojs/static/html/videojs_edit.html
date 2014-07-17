@@ -21,11 +21,11 @@
             <div class="wrapper-comp-setting">
                 <label class="label setting-label" for="videojs_edit_allow_download">Video Download Allowed</label>
                 <select class="input setting-input" id="videojs_edit_allow_download">
-                    <option value="True" selected>True</option>
-                    <option value="False" >False</option>
+                    <option value="True" ${ 'selected' if allow_download else ''}>True</option>
+                    <option value="False" ${ 'selected' if !allow_download else ''}>False</option>
                 </select>
             </div>
-            <span class="tip setting-help">${allow_download}Allow students to download this video.</span>
+            <span class="tip setting-help">Allow students to download this video.</span>
         </li>
         
     </ul>
