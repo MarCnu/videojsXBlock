@@ -61,8 +61,14 @@ class videojsXBlock(XBlock):
         The secondary view of the XBlock, shown to teachers
         when editing the XBlock.
         """
-        html = self.resource_string("static/html/videojs_edit.html")
-        frag = Fragment(html.format(self=self))
+        template = self.resource_string("static/html/videojs_edit.html")
+        html = Template(template).render(
+            display_name=self.display_name,
+            url=self.url,
+            allow_download=self.allow_download
+        )
+        
+        frag = Fragment(html)
         frag.add_javascript(self.resource_string("static/js/videojs_edit.js"))
         frag.initialize_js('videojsXBlockInitStudio')
         return frag
