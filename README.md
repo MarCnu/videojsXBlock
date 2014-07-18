@@ -6,8 +6,7 @@ videojsXblock
 This XBlock provides the Video.js player (www.videojs.com) instead of the default one.
 
 - True full screen allowed
-- More video speeds available : | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | by default (customize it easily by editing 
-videojsXBlock / videojs / static / js / videojs_view.js)
+- More video speeds available : | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | by default
 
 ### Customize the XBlock ###
 
