@@ -32,7 +32,7 @@ See https://github.com/polimediaupv/paellaXBlock installation
     sudo /edx/bin/supervisorctl -c /edx/etc/supervisord.conf restart edxapp:
 
 ### Activate the XBlock in your course ###
-Go to Settings -> Advanced Settings and set `advanced_modules` to `["videojs"]`.
+Go to `Settings -> Advanced Settings` and set `advanced_modules` to `["videojs"]`.
 
 ### Use the XBlock in a unit ###
-Add a Advanced -> VideoJS Xblock in your unit.
+Select `Advanced -> Video JS` in your unit.
