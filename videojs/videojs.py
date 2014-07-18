@@ -25,7 +25,7 @@ class videojsXBlock(XBlock):
     url = String(display_name="Video URL",
         default="http://vjs.zencdn.net/v/oceans.mp4",
         scope=Scope.content,
-        help="The URL for your video. This can be a YouTube URL or a link to an .mp4, .ogg, or .webm video file hosted elsewhere on the Internet.")
+        help="The URL for your video.")
     
     allow_download = Boolean(display_name="Video Download Allowed",
         default=True,

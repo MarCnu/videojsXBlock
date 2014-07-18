@@ -1,11 +1,18 @@
 videojsXblock
 =========
 
-This XBlock to use the Video.js player (www.videojs.com) instead of the default one.
+### Description ###
+
+This XBlock provides the Video.js player (www.videojs.com) instead of the default one.
 
 - True full screen allowed
 - More video speeds available : | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | by default (customize it easily by editing 
 videojsXBlock / videojs / static / js / videojs_view.js)
+
+### Customize the XBlock ###
+
+- The list of playbackRates can be edited in `videojsXBlock / videojs / static / js / videojs_view.js`
+- By default, Video Download Allowed is set on True. The default value can  be changed in `videojsXBlock / videojs / videojs.py`
 
 ### Install / Update the XBlock ###
 See https://github.com/polimediaupv/paellaXBlock installation
