@@ -118,7 +118,7 @@ class videojsXBlock(XBlock):
         self.url = data['url']
         self.allow_download = True if data['allow_download'] == "True" else False # Str to Bool translation
         self.start_time = ''.join(data['start_time'].split()) # Remove whitespace
-        self.start_time = ''.join(data['end_time'].split()) # Remove whitespace
+        self.end_time = ''.join(data['end_time'].split()) # Remove whitespace
         
         return {
             'result': 'success',
