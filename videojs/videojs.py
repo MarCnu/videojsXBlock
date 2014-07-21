@@ -98,8 +98,8 @@ class videojsXBlock(XBlock):
         context = {
             'display_name': self.display_name,
             'url': self.url,
-            'allow_download': self.allow_download
-            'start_time': self.start_time
+            'allow_download': self.allow_download,
+            'start_time': self.start_time,
             'end_time': self.end_time
         }
         html = self.render_template('static/html/videojs_edit.html', context)
