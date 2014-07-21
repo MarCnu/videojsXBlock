@@ -28,6 +28,22 @@
             <span class="tip setting-help">Allow students to download this video.</span>
         </li>
         
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="videojs_edit_start_time">Start time</label>
+                <input class="input setting-input" id="videojs_edit_start_time" value="{{ start_time }}" type="text">
+            </div>
+            <span class="tip setting-help">The starting time of your video. Equivalent to 'video.mp4#t=startTime' in the url.</span>
+        </li>
+        
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="videojs_edit_end_time">End time</label>
+                <input class="input setting-input" id="videojs_edit_end_time" value="{{ end_time }}" type="text">
+            </div>
+            <span class="tip setting-help">The ending time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.</span>
+        </li>
+        
     </ul>
     
     <div class="xblock-actions">

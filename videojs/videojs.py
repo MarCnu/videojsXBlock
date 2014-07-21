@@ -31,6 +31,16 @@ class videojsXBlock(XBlock):
         default=True,
         scope=Scope.content,
         help="Allow students to download this video.")
+    
+    start_time = String(display_name="Start time",
+        default="",
+        scope=Scope.content,
+        help="The starting time of your video. Equivalent to 'video.mp4#t=startTime' in the url.")
+    
+    end_time = String(display_name="End time",
+        default="",
+        scope=Scope.content,
+        help="The ending time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.")
 
     '''
     Util functions
@@ -57,9 +67,17 @@ class videojsXBlock(XBlock):
         The primary view of the XBlock, shown to students
         when viewing courses.
         """
+        fullUrl = self.url
+        if self.start_time != "" and self.end_time != "":
+            fullUrl += "#t=" + self.start_time + "," + self.end_time
+        elif self.start_time != "":
+            fullUrl += "#t=" + self.start_time
+        elif self.end_time != "":
+            fullUrl += "#t=0," + self.end_time
+        
         context = {
             'display_name': self.display_name,
-            'url': self.url,
+            'url': fullUrl,
             'allow_download': self.allow_download
         }
         html = self.render_template('static/html/videojs_view.html', context)
@@ -81,6 +99,8 @@ class videojsXBlock(XBlock):
             'display_name': self.display_name,
             'url': self.url,
             'allow_download': self.allow_download
+            'start_time': self.start_time
+            'end_time': self.end_time
         }
         html = self.render_template('static/html/videojs_edit.html', context)
         
@@ -96,7 +116,9 @@ class videojsXBlock(XBlock):
         """
         self.display_name = data['display_name']
         self.url = data['url']
-        self.allow_download = True if data['allow_download'] == "True" else False 
+        self.allow_download = True if data['allow_download'] == "True" else False # Str to Bool translation
+        self.start_time = ''.join(data['start_time'].split()) # Remove whitespace
+        self.start_time = ''.join(data['end_time'].split()) # Remove whitespace
         
         return {
             'result': 'success',
