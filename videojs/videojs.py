@@ -32,15 +32,25 @@ class videojsXBlock(XBlock):
         scope=Scope.content,
         help="Allow students to download this video.")
     
+    source_text = String(display_name="Source document button text",
+        default="",
+        scope=Scope.content,
+        help="Add a download link for the source file of your video. Use it for example to provide the PowerPoint or PDF file used for this video.")
+    
+    source_url = String(display_name="Source document URL",
+        default="",
+        scope=Scope.content,
+        help="Add a download link for the source file of your video. Use it for example to provide the PowerPoint or PDF file used for this video.")
+    
     start_time = String(display_name="Start time",
         default="",
         scope=Scope.content,
-        help="The starting time of your video. Equivalent to 'video.mp4#t=startTime' in the url.")
+        help="The start and end time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.")
     
     end_time = String(display_name="End time",
         default="",
         scope=Scope.content,
-        help="The ending time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.")
+        help="The start and end time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.")
 
     '''
     Util functions
@@ -78,7 +88,9 @@ class videojsXBlock(XBlock):
         context = {
             'display_name': self.display_name,
             'url': fullUrl,
-            'allow_download': self.allow_download
+            'allow_download': self.allow_download,
+            'source_text': self.source_text,
+            'source_url': self.source_url
         }
         html = self.render_template('static/html/videojs_view.html', context)
         
@@ -99,6 +111,8 @@ class videojsXBlock(XBlock):
             'display_name': self.display_name,
             'url': self.url,
             'allow_download': self.allow_download,
+            'source_text': self.source_text,
+            'source_url': self.source_url,
             'start_time': self.start_time,
             'end_time': self.end_time
         }
@@ -117,6 +131,8 @@ class videojsXBlock(XBlock):
         self.display_name = data['display_name']
         self.url = data['url']
         self.allow_download = True if data['allow_download'] == "True" else False # Str to Bool translation
+        self.source_text = data['source_text']
+        self.source_url = data['source_url']
         self.start_time = ''.join(data['start_time'].split()) # Remove whitespace
         self.end_time = ''.join(data['end_time'].split()) # Remove whitespace
         

@@ -30,18 +30,26 @@
         
         <li class="field comp-setting-entry is-set">
             <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="videojs_edit_start_time">Start time</label>
-                <input class="input setting-input" id="videojs_edit_start_time" value="{{ start_time }}" type="text">
+                <label class="label setting-label" for="videojs_edit_source_text">Source document button text</label>
+                <input class="input setting-input" id="videojs_edit_source_text" value="{{ source_text }}" type="text" placeholder="Default : Download the source document">
             </div>
-            <span class="tip setting-help">The starting time of your video. Equivalent to 'video.mp4#t=startTime' in the url.</span>
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="videojs_edit_source_url">Source document URL</label>
+                <input class="input setting-input" id="videojs_edit_source_url" value="{{ source_url }}" type="text">
+            </div>
+            <span class="tip setting-help">Add a download link for the source file of your video. Use it for example to provide the PowerPoint or PDF file used for this video.</span>
         </li>
         
         <li class="field comp-setting-entry is-set">
             <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="videojs_edit_start_time">Start time</label>
+                <input class="input setting-input" id="videojs_edit_start_time" value="{{ start_time }}" type="text">
+            </div>
+            <div class="wrapper-comp-setting">
                 <label class="label setting-label" for="videojs_edit_end_time">End time</label>
                 <input class="input setting-input" id="videojs_edit_end_time" value="{{ end_time }}" type="text">
             </div>
-            <span class="tip setting-help">The ending time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.</span>
+            <span class="tip setting-help">The start and end time of your video. Equivalent to 'video.mp4#t=startTime,endTime' in the url.</span>
         </li>
         
     </ul>

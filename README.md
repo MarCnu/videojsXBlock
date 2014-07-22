@@ -7,6 +7,7 @@ This XBlock provides the Video.js player (www.videojs.com) instead of the defaul
 
 - True full screen allowed
 - More video speeds available : | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | by default
+- (Optional) Source document download button, for example to provide your PPT or PDF file
 
 ### Customize the XBlock ###
 
