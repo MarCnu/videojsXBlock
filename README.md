@@ -1,4 +1,4 @@
-videojsXblock
+videojsXBlock
 =========
 
 ### Description ###

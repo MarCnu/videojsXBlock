@@ -15,16 +15,17 @@ function videojsXBlockInitStudio(runtime, element) {
             'start_time': $('#videojs_edit_start_time').val(),
             'end_time': $('#videojs_edit_end_time').val()
         };
-
-        $('.xblock-editor-error-message', element).html();
-        $('.xblock-editor-error-message', element).css('display', 'none');
+        
+        runtime.notify('save', {state: 'start'});
+        
         var handlerUrl = runtime.handlerUrl(element, 'save_videojs');
         $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
             if (response.result === 'success') {
-                window.location.reload(false);
+                runtime.notify('save', {state: 'end'});
+                // Reload the whole page :
+                // window.location.reload(false);
             } else {
-                $('.xblock-editor-error-message', element).html('Error: '+response.message);
-                $('.xblock-editor-error-message', element).css('display', 'block');
+                runtime.notify('error', {msg: response.message})
             }
         });
     });
